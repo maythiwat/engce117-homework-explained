@@ -1,0 +1,60 @@
+/**
+ * ENGCE117 Homework Explained
+ * 
+ * Code by Maythiwat C., Chakrit K., Achitphon O., Sarawut K.
+ * Explain by Maythiwat C.
+ */
+
+#include <stdio.h>
+
+// เหมือน 09-4 แต่แสดงแค่ เลขที่ซ้ำ (ไม่แสดงจำนวนครั้ง) และเรียงจากน้อยไปมาก
+
+int main() {
+    int n ;
+    printf( "Input N : " ) ;
+    scanf( "%d", &n ) ;
+
+    int *arr ;
+    arr = new int[ n ] ;
+
+    bool *store ;
+    store = new bool[ n ]{ false } ;
+
+    for( int i = 0 ; i < n ; i++ ) {
+        printf( "Input : " ) ;
+        scanf( "%d", &arr[ i ] ) ;
+    }// end for
+
+    // sort
+    int tmp ;
+    for( int i = 0 ; i < n ; i++ ) {
+        for ( int j = 0 ; j < n ; j++ ) {
+            if ( arr[ i ] < arr[ j ] ) {
+                tmp = arr[ i ] ;
+                arr[ i ] = arr[ j ] ;
+                arr[ j ] = tmp ;
+            }//end if
+        }//end for
+    }//end for
+
+    printf( "Unique value : " ) ;
+
+    // detect duplicate shitty well done
+    for( int i = 0 ; i < n ; i++ ) {
+        if( store[ i ] ) continue ; // already detected
+
+        int count = 1 ;
+        for ( int j = i + 1 ; j < n ; j++ ) {
+            if ( arr[ i ] == arr[ j ] ) {
+                count++ ; // increment duplicates
+                store[ j ] = true ; // mark index
+            }//end if
+        }//end for
+
+        if( count == 1 ) {
+            printf( "%d ", arr[ i ] ) ;
+        }//end if
+    }//end for
+
+    return 0 ;
+}//end function
