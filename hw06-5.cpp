@@ -1,3 +1,10 @@
+/**
+ * ENGCE117 Homework Explained
+ * 
+ * Code by Maythiwat C., Chakrit K., Achitphon O., Sarawut K.
+ * Explain by Maythiwat C.
+ */
+
 #include <stdio.h>
 
 int main() {
