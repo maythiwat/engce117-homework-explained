@@ -15,9 +15,11 @@ int main() {
     int array2[ 100 ][ 100 ] ;
     int result[ 100 ][ 100 ] ;
 
+    // กำหนดขนาด matrix 1 (row col)
     printf( "Array1 Value : " ) ;
     scanf( "%d %d", &r1, &c1 ) ;
 
+    // รับค่าสมาชิก matrix 1
     printf( "Array1 element : " ) ;
     for( int i = 0 ; i < r1 ; i++ ) {
         for( int j = 0 ; j < c1 ; j++ ) {
@@ -25,16 +27,18 @@ int main() {
         }
     }//end for
 
+    // กำหนดขนาด matrix 2 (row col)
     printf( "Array2 Value : " ) ;
     scanf( "%d %d", &r2, &c2 ) ;
 
-    // คูณไม่ได้เพราะ column ของ matrix 1 ไม่ขนาดไม่เท่ากัย row ของ matrix 2
+    // คูณไม่ได้เพราะ column ของ matrix 1 ไม่ขนาดไม่เท่ากับ row ของ matrix 2
     if( c1 != r2 ) {
         printf( "Matrix multiplication not possible.\n" ) ;
         return 1 ;
     }//end if
 
-    
+
+    // รับค่าสมาชิก matrix 2
     printf( "Array2 element : " ) ;
     for( int i = 0 ; i < r2 ; i++ ) {
         for( int j = 0 ; j < c2 ; j++ ) {
@@ -48,9 +52,9 @@ int main() {
         }
     }//end for
 
-    for( int i = 0 ; i < r1 ; i++ ) {
-        for( int j = 0 ; j < c2 ; j++ ) {
-            for( int k = 0 ; k < c1 ; k++ ) {
+    for( int i = 0 ; i < r1 ; i++ ) { // วนซ้ำ row matrix 1
+        for( int j = 0 ; j < c2 ; j++ ) { // วนซ้ำ col matrix 2
+            for( int k = 0 ; k < c1 ; k++ ) { // วนซ้ำ col matrix 1
                 // คูณ matrix แบบที่คุณเคยเรียนคณิตศาสตร์มา
                 result[ i ][ j ] += array1[ i ][ k ] * array2[ k ][ j ] ;
             }
